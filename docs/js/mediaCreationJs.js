@@ -33,19 +33,30 @@ const renderJson = (json) => {
     studios.pop();
 
     const studio = studios[pageNumber];
+
     const studioDiv = document.createElement('div');
-    const studioTitle = document.createElement("span");
+
+    const studioTitle = document.createElement("h1");
     studioTitle.className = 'studio-title';
     studioTitle.textContent = studio['name-ja'];
-    const studioTitleEn = document.createElement("span");
-    studioTitleEn.className = 'studio-title-en';
-    studioTitleEn.textContent = studio['name-en'];
-    studioDiv.appendChild(studioTitle);
-    studioDiv.appendChild(studioTitleEn);
-    document.getElementById('studios').appendChild(studioDiv);
-    console.log(studio);
-     
+    document.getElementById('studio-name').appendChild(studioTitle);
+
+    const studioDescription = document.createElement("p");
+    studioDescription.className = 'studio-description';
+    studioDescription.textContent = studio['description-ja'];
+    document.getElementById('studio-description').appendChild(studioDescription);
     
+
+    const studioFaculty = document.createElement("h3");
+    studioFaculty.className = 'studio-faculty';
+    studioFaculty.textContent = studio['faculty-ja'];
+    document.getElementById('studio-faculty').appendChild(studioFaculty);
+
+    // studioDiv.appendChild(studioTitle);
+    // studioDiv.appendChild(studioDescription);
+    // studioDiv.appendChild(studioFaculty);
+    // document.getElementById('studios').appendChild(studioDiv);
+
    
     document.getElementById('result').textContent = JSON.stringify(json, null, 2);
 }
