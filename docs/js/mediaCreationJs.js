@@ -5,9 +5,7 @@ const endpoint = `${uri}?id=${id}&sheet=${sheet}`;
 
 const renderJson = (json) => {
   const studios = json.records;
-  //const lastStudio = studio.pop();
-   studios.pop();
-   studios.forEach(studio => {
+  studios.forEach(studio => {
    const studioDiv = document.createElement('div');
    const studioTitle = document.createElement("span");
    studioTitle.className = 'studio-title';
@@ -27,7 +25,7 @@ const getData = async () => {
     const response =  await fetch(endpoint);
     if(response.ok){
       let jsonResponse = await response.json();
-            renderJson(jsonResponse);
+			renderJson(jsonResponse);
     }
   }
   catch(error){
