@@ -2,9 +2,8 @@ const uri = 'https://script.google.com/macros/s/AKfycbxyacpN8y4nxSAnU0Eji6E_rBRD
 const id = '1BpGnuwC4lZf9G2yFyiSrxbJuGO8gviV8mr-I2D3x4vA';
 const sheet = 'studio';
 const endpoint = `${uri}?id=${id}&sheet=${sheet}`;
-var getPageTitle = document.title;
-var pageNumber = -1;
-//const pageTitle = ["エディティングスタジオ","インタラクティブアートスタジオ", "映像デザインスタジオ", "ネットワークデザインスタジオ", "ソフトウェアデザインスタジオ", "ヴィジュアルコミュニケーションデザインスタジオ"];
+let getPageTitle = document.title;
+let pageNumber = -1;
 switch(getPageTitle){
     case "エディティングスタジオ":
         pageNumber = 0;
@@ -27,61 +26,11 @@ switch(getPageTitle){
         break;
 }
 
-
-// if(getPageTitle === "エディティングスタジオ")
-// {
-//     pageNumber = 0;
-// }else if(getPageTitle === "インタラクティブアートスタジオ")
-// {
-//     pageNumber = 3;
-// }else if(getPageTitle === "映像デザインスタジオ")
-// {
-//     pageNumber = 6;
-// }else if(getPageTitle === "ネットワークデザインスタジオ")
-// {
-//     pageNumber = 7;
-// }else if(getPageTitle === "ソフトウェアデザインスタジオ")
-// {
-//     pageNumber = 8;
-// }else if(getPageTitle === "ヴィジュアルコミュニケーションデザインスタジオ")
-// {
-//     pageNumber = 11;
-// }
-
 console.log(getPageTitle);
 
 const renderJson = (json) => {
     const studios = json.records;
-  //const lastStudio = studio.pop();
     studios.pop();
-    // studios.forEach(studio => {
-    //     const studioDiv = document.createElement('div');
-    //     const studioTitle = document.createElement("span");
-    //     studioTitle.className = 'studio-title';
-    //     studioTitle.textContent = studio['name-ja'];
-    //     const studioTitleEn = document.createElement("span");
-    //     studioTitleEn.className = 'studio-title-en';
-    //     studioTitleEn.textContent = studio['name-en'];
-    //     studioDiv.appendChild(studioTitle);
-    //     studioDiv.appendChild(studioTitleEn);
-    //     document.getElementById('studios').appendChild(studioDiv);
-    //     console.log(studioDiv);
-    // });
-
-    // for (let i = 0; i < studios.length; i++) {
-    //     const studio = studios[i];
-    //     const studioDiv = document.createElement('div');
-    //     const studioTitle = document.createElement("span");
-    //     studioTitle.className = 'studio-title';
-    //     studioTitle.textContent = studio['name-ja'];
-    //     const studioTitleEn = document.createElement("span");
-    //     studioTitleEn.className = 'studio-title-en';
-    //     studioTitleEn.textContent = studio['name-en'];
-    //     studioDiv.appendChild(studioTitle);
-    //     studioDiv.appendChild(studioTitleEn);
-    //     document.getElementById('studios').appendChild(studioDiv);
-    //     console.log(studio);
-    // }
 
     const studio = studios[pageNumber];
     const studioDiv = document.createElement('div');
