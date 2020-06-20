@@ -81,6 +81,7 @@ const renderJson = (json) => {
 let image = studioPhotos[photoNumber - 1];
 image.onclick = changeImage;
 let counter = photoNumber - 1;
+changeImage()
 
 function changeImage(){
 
@@ -113,20 +114,9 @@ function changeImage(){
       }, 50);
     }
   }, 50);
+  setTimeout(changeImage,4000);
 }
 
-//image.onclick = changeImage;
-
-    // //   photoBox.animate({
-// //     left: '-150' * photoIndex + '%'
-// //   }, 1000);
-
-    // studioPhotosDiv.style.padding = '200px';
-    // // for (i = 0; i < photoNumber; i++) {
-// //   photos.eq(i).css({
-// //     left: '150' * i + '%'
-// //   });
-// // }
 
     const studioDescription = document.createElement("p");
     studioDescription.textContent = studio['description-ja'];
