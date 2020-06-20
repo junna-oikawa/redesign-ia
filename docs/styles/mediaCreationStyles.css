@@ -1,7 +1,7 @@
 body {
   font-family: sans-serif;
 }
-h1, h2 {
+/* h1, h2 {
   font-weight: 400;
   color: steelblue;
 }
@@ -25,4 +25,30 @@ h1, h2 {
     padding: 0.5em;
     background: #f8f8f8;
     min-height: 3em;
+  } */
+
+  /* 以下追加 */
+
+  #studioTopDiv{
+    position: absolute;
+    width: 100%;
   }
+
+  #studioPhotosDiv {
+    height: 500px;
+    position: absolute;
+    width: 100%;
+  }
+  
+  #studioPhotosDiv img {
+    
+    position: absolute;
+    border: 1px solid white;
+    box-shadow: 5px 5px 10px gray;
+    width: 1px;
+    z-index:5;
+  }
+
+  /* .studio-photo{
+    width: 500px;
+  } */
