@@ -49,6 +49,12 @@ body {
     z-index:5;
   }
 
+  #studioPhotoThumbnails{
+    position: relative;
+    top: 500px;
+    background-color: aquamarine;
+  }
+
   /* .studio-photo{
     width: 500px;
   } */

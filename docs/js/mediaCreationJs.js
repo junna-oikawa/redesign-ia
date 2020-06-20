@@ -26,8 +26,6 @@ switch(getPageTitle){
         break;
 }
 
-console.log(getPageTitle);
-
 const renderJson = (json) => {
     const studios = json.records;
     studios.pop();
@@ -37,6 +35,8 @@ const renderJson = (json) => {
     const studioTopDiv = document.createElement('div');
     const studioPhotoDiv = document.createElement('div');
     const studioPhotosDiv = document.createElement('div');
+    const studioPhotoThumbnail = document.createElement('div');
+    const studioPhotoThumbnails = document.createElement('div');
 
     const studioTitle = document.createElement("h1");
     studioTitle.className = 'studio-title';
@@ -44,34 +44,38 @@ const renderJson = (json) => {
     document.getElementById('studioTopDiv').appendChild(studioTitle);
 
     const studioPhotos = [];
+    const studioPhotosThum = [];
     for (var i = 0; i < 5; i++){
       studioPhotos[i] = document.createElement("img");
       studioPhotos[i].className = 'studio-photo';
       studioPhotos[i].src = studio['photo' + [i+1]];
+      studioPhotosThum[i] = document.createElement("img");
+      studioPhotosThum[i].className = 'studio-photo';
+      studioPhotosThum[i].src = studio['photo' + [i+1]];
+      
       if(studioPhotos[i].src === 'http://127.0.0.1:5500/mediaCreationHtmls/editorialDesignStudio.html'){
-        console.log('s');
+        //console.log('s');
         break;
       }
       studioPhotoDiv.appendChild(studioPhotos[i]);
+      studioPhotoThumbnail.appendChild(studioPhotosThum[i]);
     }
     document.getElementById('studioPhotosDiv').appendChild(studioPhotoDiv);
-    
-    // console.log(studioPhotos[0].src);
-    // console.log(studioPhotos[1].src);
-    // console.log(studioPhotos[2].src);
-    // console.log(studioPhotos[3].src);
+    document.getElementById('studioPhotoThumbnails').appendChild(studioPhotoThumbnail);
 
     studioPhotos.pop();
 
-    studioPhotos[0].style.width = '200px';
-    studioPhotos[1].style.width = '200px';
+    let windowWidth = window.innerWidth;
 
-    // studioPhotos[0].style.left = '20%';
     var photoNumber = studioPhotos.length;
-    console.log(photoNumber);
+    for( var i = 0; i < photoNumber; i++){
+      studioPhotos[i].style.width = '70%';
+      studioPhotosThum[i].style.width = '20%';
+    }
 
     for (var i = 0; i < photoNumber - 1; i++){
       studioPhotos[i].style.opacity = 0;
+
       // studioPhotos[i].style.left = '10' * i + '%';
     }
 
@@ -114,9 +118,45 @@ function changeImage(){
 }
 setTimer();
 function setTimer(){
-  setTimeout(setTimer,5000);
-  setTimeout(changeImage,5000);
+  setTimeout(setTimer,8000);
+  setTimeout(changeImage,8000);
 }
+
+let imageThum = [];
+for(var i = 0; i < photoNumber; i++){
+  imageThum[i] = studioPhotosThum[i];
+}
+
+imageThum[0].onclick = clickThumbnail0;
+imageThum[1].onclick = clickThumbnail1;
+imageThum[2].onclick = clickThumbnail2;
+imageThum[3].onclick = clickThumbnail3;
+imageThum[4].onclick = clickThumbnail4;
+
+console.log(studioPhotosThum.getAttribute('onclick'));
+
+//サムネイルをクリックした時の処理 ----------------
+function clickThumbnail0() {
+  counter = 1;
+  changeImage();
+}
+function clickThumbnail1() {
+  counter = 2;
+  changeImage();
+}
+function clickThumbnail2() {
+  counter = 3;
+  changeImage();
+}
+function clickThumbnail3() {
+  counter = 4;
+  changeImage();
+}
+function clickThumbnail4() {
+  counter = 0;
+  changeImage();
+}
+
 
 
     const studioDescription = document.createElement("p");
@@ -153,144 +193,3 @@ const getData = async () => {
 
 getData();
 
-
-
-// //以下追加
-
-// // 変数を用意する -------------------------------
-// // ウィンドウの横幅
-var windowWidth = document.body.clientWidth;
-console.log(windowWidth);
-
-// function getWindowSize() {
-
-
-//   console.log(`ウィンドウサイズの横幅`);
-//   console.log(window.innerWidth);
-
-//   console.log(`ウィンドウサイズの高さ`);
-//   console.log(window.innerHeight);
-// }
-
-// getWindowSize();
-
-
-// // 写真を囲む箱
-// var photoBox = document.getElementById("#studioTopDiv");
-
-// // 全ての写真
-// var photos = document.getElementById(".studio-photo");
-// console.log(photos);
-
-// // 写真の枚数
-// var photoNumber = 3;
-
-// // 写真のインデックス（番号）
-// var photoIndex = 0;
-
-// // 写真の横幅
-// var photoWidth = 500;
-
-// // 全てのサムネイル
-// //var thumbnails = $('div.thumbnailBox img');
-
-// // 背景画像用の箱
-// //var backgroundBox = $('div.backgroundBox');
-
-// // それぞれの背景画像
-// // var background1 = $('div.background1');
-// // var background2 = $('div.background2');
-// // var background3 = $('div.background3');
-// // var background4 = $('div.background4');
-
-// photos.style.width = '100px';
-
-// // 写真と背景を並べる ----------------------------
-// // 写真の枚数分、写真を並べる
-// // for (i = 0; i < photoNumber; i++) {
-// //   photos.eq(i).css({
-// //     left: '150' * i + '%'
-// //   });
-// // }
-
-// // for (i = 0; i < photoNumber; i++) {
-// //   photos.eq(i).css({
-// //     left: '150' * i + '%'
-// //   });
-// // }
-
-// // 背景の箱の横幅を写真の枚数分にする
-// //backgroundBox.width(windowWidth * photoNumber);
-
-
-// // 写真スライドの処理 -----------------------------
-// // function slidePhotos() {
-// //   // 写真を動かす
-// //   photoBox.animate({
-// //     left: '-150' * photoIndex + '%'
-// //   }, 1000);
-
-//   // 背景を動かす
-//   // background1.animate({
-//   //   left: -photoWidth * photoIndex / 16
-//   // }, 1000);
-//   // background2.animate({
-//   //   left: -photoWidth * photoIndex / 8
-//   // }, 1000);
-//   // background3.animate({
-//   //   left: -photoWidth * photoIndex / 4
-//   // }, 1000);
-//   // background4.animate({
-//   //   left: -photoWidth * photoIndex / 2
-//   // }, 1000);
-// //}
-
-
-// // サムネイルを選択した時の処理 -------------------
-// // function selectThumbnail() {
-// //   // 全てのサムネイルからselectedクラスを外す
-// //   thumbnails.removeClass('selected');
-// //   // 選んだサムネイルにselectedクラスを追加する
-// //   thumbnails.eq(photoIndex).addClass('selected');
-// // }
-
-
-// // サムネイルをクリックした時の処理 ----------------
-// // function clickThumbnail(thumbnail) {
-// //   // サムネイルのindexをphotoIndexに入れる
-// //   photoIndex = $(thumbnail).index();
-// //   // selectThumbnail関数を呼び出す
-// //   selectThumbnail();
-// //   // slidePhotos関数を呼び出す
-// //   slidePhotos();
-// // }
-
-
-// // ボタンをクリックした時の処理 --------------------
-// // 次へボタン
-// // function clickNextButton() {
-// //   // 次のindexを計算する
-// //   photoIndex += 1;
-// //   // photoNumberを超えたら0に戻す
-// //   if (photoIndex > photoNumber - 1) {
-// //     photoIndex = 0;
-// //   }
-// //   // selectThumbnail関数を呼び出す
-// //   selectThumbnail();
-// //   // slidePhotos関数を呼び出す
-// //   slidePhotos();
-// // }
-
-// // 戻るボタン
-// // function clickBackButton() {
-// //   // 次のindexを計算する
-// //   photoIndex -= 1;
-// //   // photoIndexが0を下回ったらphotoNumber-1に戻す
-// //   if (photoIndex < 0) {
-// //     photoIndex = photoNumber - 1;
-// //   }
-// //   // selectThumbnail関数を呼び出す
-// //   selectThumbnail();
-// //   // slidePhotos関数を呼び出す
-// //   slidePhotos();
-// // }
