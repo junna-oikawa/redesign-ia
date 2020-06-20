@@ -75,13 +75,9 @@ const renderJson = (json) => {
       // studioPhotos[i].style.left = '10' * i + '%';
     }
 
-    //コピペ
-//     let intervalId;
-// let image = document.getElementById('targetImage');
 let image = studioPhotos[photoNumber - 1];
 image.onclick = changeImage;
 let counter = photoNumber - 1;
-changeImage()
 
 function changeImage(){
 
@@ -114,7 +110,12 @@ function changeImage(){
       }, 50);
     }
   }, 50);
-  setTimeout(changeImage,4000);
+  
+}
+setTimer();
+function setTimer(){
+  setTimeout(setTimer,5000);
+  setTimeout(changeImage,5000);
 }
 
 
@@ -158,8 +159,8 @@ getData();
 
 // // 変数を用意する -------------------------------
 // // ウィンドウの横幅
-// var windowWidth = document.body.clientWidth;
-// console.log(windowWidth);
+var windowWidth = document.body.clientWidth;
+console.log(windowWidth);
 
 // function getWindowSize() {
 
