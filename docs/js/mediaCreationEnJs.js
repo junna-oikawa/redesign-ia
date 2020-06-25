@@ -8,34 +8,25 @@ const endpoint = `${uri}?id=${id}&sheet=${sheet}`;
 let getPageTitle = document.title;
 let pageNumber = -1;
 
-
-
-
-
-// window.addEventListener('load', (event) => {
-//   console.log('ページが完全に読み込まれました');
-// });
-
-
 //取り込む内容の識別
 switch (getPageTitle) {
-  case "エディティングスタジオ":
+  case "Editorial Design Studio":
     pageNumber = 0;
     break;
-  case "インタラクティブアートスタジオ":
+  case "Interactive Art Studio":
     pageNumber = 3;
     break;
-  case "映像デザインスタジオ":
+  case "Kinematograph Design Studio":
     pageNumber = 6;
     break;
 
-  case "ネットワークデザインスタジオ":
+  case "Network Design Studio":
     pageNumber = 7;
     break;
-  case "ソフトウェアデザインスタジオ":
+  case "Software Design Studio":
     pageNumber = 8;
     break;
-  case "ヴィジュアルコミュニケーションデザインスタジオ":
+  case "Visual Communication Design Studio":
     pageNumber = 11;
     break;
 }
@@ -47,16 +38,15 @@ const renderJson = (json) => {
 
   const studio = studios[pageNumber];
 
-  // const studioNameDiv = document.createElement('div');
-  // const studioNameDivEn = document.createElement('div');
   const studioPhotoDiv = document.createElement('div');
   const studioPhotosDiv = document.createElement('div');
   const studioPhotoThumbnail = document.createElement('div');
   const studioPhotoThumbnails = document.createElement('div');
 
   const studioTitle = document.createElement("h1");
+  const studioTitleEn = document.createElement("h1");
   studioTitle.className = 'studio-title';
-  studioTitle.textContent = studio['name-ja'];
+  studioTitle.textContent = studio['name-en'];
   //document.getElementById('studioNameDiv').appendChild(studioTitle);
   document.getElementById('studioTopDiv').appendChild(studioTitle);
 
@@ -84,14 +74,14 @@ const renderJson = (json) => {
   studioPhotos.pop();
 
   const studioDescription = document.createElement("p");
-  studioDescription.textContent = studio['description-ja'];
+  studioDescription.textContent = studio['description-en'];
   document.getElementById('studio-description').appendChild(studioDescription);
 
   
 
 
   const studioFaculty = document.createElement("p");
-  studioFaculty.textContent = studio['faculty-ja'];
+  studioFaculty.textContent = studio['faculty-en'];
   document.getElementById('studio-faculty').appendChild(studioFaculty);
 
   
