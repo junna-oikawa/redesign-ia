@@ -66,6 +66,9 @@ p{
 .paragraph-name{
   padding-top:3vw;
 }
+#studio-faculty{
+  font-size: 1.5vw;
+}
 
 /* h1, h2 {
   font-weight: 400;
