@@ -12,9 +12,9 @@ h1 {
   background-color: rgb(0, 0, 0, 0.1);
 }
 
-p{
+/* p{
   font-size: 1.5vw;
-}
+} */
 
 #studioTopDiv {
   margin-top: 10vw;
@@ -37,7 +37,8 @@ p{
   height: 14vw;
   margin-top:1vw;
   position: relative;
-  text-align: center;
+  left: 10vw;
+  /* text-align: center; */
   /* background-color: rgb(0, 0, 0, 0.1); */
 }
 
@@ -68,6 +69,13 @@ p{
 }
 #studio-faculty{
   font-size: 1.5vw;
+}
+
+.CP{
+  font-weight: 200;
+  text-align: center;
+  font-size: 10px;
+  color: rgb(20, 20, 20);
 }
 
 /* h1, h2 {

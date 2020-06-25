@@ -74,10 +74,14 @@ const renderJson = (json) => {
   studioDescription.textContent = studio['description-ja'];
   document.getElementById('studio-description').appendChild(studioDescription);
 
+  
+
 
   const studioFaculty = document.createElement("p");
   studioFaculty.textContent = studio['faculty-ja'];
   document.getElementById('studio-faculty').appendChild(studioFaculty);
+
+  
 
   //写真の表示位置
   let windowWidth = window.innerWidth;
@@ -208,4 +212,3 @@ const getData = async () => {
 }
 
 getData();
-
