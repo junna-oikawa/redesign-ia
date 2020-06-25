@@ -1,6 +1,68 @@
 body {
   font-family: sans-serif;
+  background-image: url('../image/editorialDesign.png');
+  background-repeat:no-repeat;
+  background-size:cover;
+  position: relative;
 }
+
+h1 {
+  font-size: 4vw;
+  color: white;
+  background-color: rgb(0, 0, 0, 0.1);
+}
+
+#studioTopDiv {
+  margin-top: 10vw;
+  height: 50vw;
+  position: relative;
+  overflow: hidden;
+}
+.studio-title{
+  position: absolute;
+  z-index: 2;
+  left: 13vw;
+}
+.studio-photo{
+  z-index:1;
+  position: absolute;
+  left: 10vw;
+}
+
+#studioPhotoThumbnails{
+  height: 14vw;
+  margin-top:1vw;
+  position: relative;
+  text-align: center;
+  /* background-color: rgb(0, 0, 0, 0.1); */
+}
+
+.studio-photo-thumbnail{
+  /* padding-top:1.5vw; */
+  height: 13vw;
+  overflow: hidden;
+  vertical-align:top;
+  padding-right: 1vw;
+  padding-left: 1vw;
+  margin:0;
+}
+
+#studio-about{
+  margin:0;
+  padding:0;
+  margin-left:10vw;
+  padding-bottom:15vw;
+}
+
+#studio-description{
+  width:50vw;
+  font-size: 1.5vw;
+}
+
+.paragraph-name{
+  padding-top:3vw;
+}
+
 /* h1, h2 {
   font-weight: 400;
   color: steelblue;
@@ -29,31 +91,31 @@ body {
 
   /* 以下追加 */
 
-  #studioTopDiv{
+   /* #studioTopDiv{
     position: absolute;
     width: 100%;
-  }
+  }  */
 
-  #studioPhotosDiv {
+  /* #studioPhotoDiv {
     height: 500px;
     position: absolute;
     width: 100%;
-  }
+  } */
   
-  #studioPhotosDiv img {
+  /* #studioPhotosDiv img {
     
     position: absolute;
     border: 1px solid white;
     box-shadow: 5px 5px 10px gray;
     width: 1px;
     z-index:5;
-  }
+  } */
 
-  #studioPhotoThumbnails{
+  /* #studioPhotoThumbnails{
     position: relative;
     top: 500px;
     background-color: aquamarine;
-  }
+  } */
 
   /* .studio-photo{
     width: 500px;
