@@ -2,6 +2,8 @@ const uri = 'https://script.google.com/macros/s/AKfycbxyacpN8y4nxSAnU0Eji6E_rBRD
 const id = '1BpGnuwC4lZf9G2yFyiSrxbJuGO8gviV8mr-I2D3x4vA';
 const sheet = 'studio';
 const endpoint = `${uri}?id=${id}&sheet=${sheet}`;
+const sheet2 = 'Faculty';
+const endpoint2 = `${uri}?id=${id}&sheet=${sheet2}`;
 let getPageTitle = document.title;
 let pageNumber = -1;
 
@@ -31,6 +33,7 @@ switch (getPageTitle) {
 
 //取り込み
 const renderJson = (json) => {
+  
   const studios = json.records;
   studios.pop();
   const studio = studios[pageNumber];
@@ -46,6 +49,7 @@ const renderJson = (json) => {
   //document.getElementById('studioNameDiv').appendChild(studioTitle);
   document.getElementById('studioTopDiv').appendChild(studioTitle);
 
+  
   //スタジオの写真をstudioPhotosDivに入れる
   const studioPhotos = [];
   const studioPhotosThum = [];
@@ -77,6 +81,8 @@ const renderJson = (json) => {
   studioFaculty.textContent = studio['faculty-ja'];
   document.getElementById('studio-faculty').appendChild(studioFaculty);
 
+
+  //背景
   const nemui = document.getElementById('studioTopDiv');
   nemui.style.backgroundColor='red';
   nemui.style.backgroundImage='url('+studio['photo' + [1]]+')';
@@ -89,7 +95,7 @@ const renderJson = (json) => {
   //console.log(photoNumber);
   for (var i = 0; i <= photoNumber; i++) {
     studioPhotos[i].style.width = '50vw';
-    studioPhotosThum[i].style.width = '10vw';
+    studioPhotosThum[i].style.width = '9vw';
     studioPhotos[i].style.opacity = 0;
   }
   studioPhotos[photoNumber].style.opacity = 1;
@@ -140,9 +146,9 @@ const renderJson = (json) => {
           if (image.style.opacity >= 1) {
             clearInterval(intervalId);
           }
-        }, 50);
+        }, 40);
       }
-    }, 50);
+    }, 40);
 
   }
   
@@ -208,4 +214,69 @@ getData();
 
 
 
+
+const renderJson2 = (json) => {
+  const faculties = json.records[pageNumber];
+  const facultyPhoto = document.createElement("img");
+  // facultyPhoto.src = faculty['faculty-photo'];
+  facultyPhoto.src = faculties['faculty-photo'];
+  
+
+  function log(){
+    console.log(facultyPhoto);
+  }
+  log();
+
+  document.getElementById('faculty-photo').appendChild(facultyPhoto);
+
+
+
+  const back = document.getElementById('under-top');
+  const about = document.getElementById('studio-about');
+  function ff(){
+    back.style.backgroundColor='red';
+    back.style.backgroundImage='url("../image/editorialDesign.png")';
+  }
+  ff();
+
+  //ON
+  facultyPhoto.addEventListener('mouseenter', () => {
+    back.style.backgroundColor = 'red';
+    back.style.backgroundRepeat='repeat';
+    back.style.backgroundSize='20vw auto';
+    back.style.backgroundImage='url('+facultyPhoto.src+')';
+    about.style.color="white";
+    console.log('ggg');
+  }, false);
+    
+  //OUT
+  facultyPhoto.addEventListener('mouseleave', () => {
+    back.style.backgroundColor = "white";
+    back.style.backgroundImage='url("../image/editorialDesign.png")';
+    back.style.backgroundRepeat='no-repeat';
+    back.style.backgroundSize='100vw auto';
+    about.style.color='rgb(99, 99, 99)';
+    console.log('dd');
+  }, false);
+
+
+  document.getElementById('result').textContent = JSON.stringify(json, null, 2);
+
+}
+
+
+const getData2 = async () => {
+  try{
+    const response2 =  await fetch(endpoint2);
+    if(response2.ok){
+      let jsonResponse2 = await response2.json();
+        jsonResponse2.records.pop();
+        renderJson2(jsonResponse2);
+    }
+  }
+  catch(error){
+    console.log(error);
+  }
+}
+getData2();
 

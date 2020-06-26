@@ -10,9 +10,9 @@
 
   <body>
     <header>
-      <!-- <div id="showloading">
+      <div id="showloading">
         <img src="../image/ia_loading" alt="loading" id="loading-image">
-      </div> -->
+      </div>
       
       <p id="university-name">Tokyo Metropolitan University | Department of Industrail Art<br>東京都立大学 インダストリアルアート学科</p>
       <div id="hako">
@@ -22,15 +22,17 @@
     
     </header>
 
-    <div id="contents" >
+    <div id="contents" class="hidden">
       <div id="studioTopDiv"></div>
       <div id="under-top">
         <div id="studio-about">
           <h2 class="paragraph-name">このスタジオについて</h2>
           <p id="studio-description"></p>
           <h2 class="paragraph-name">担当教員</h2>
-          <p id="studio-faculty"></p>
-          <img class="image_place">
+          <div id="about-faculty">
+            <div id="faculty-photo"></div>
+            <p id="studio-faculty"></p>
+          </div>
         </div>
 
         <div id="studioGalleryDiv"></div>

@@ -16,10 +16,10 @@ function after(){
     showloading.style.display = 'none';
 }
 
-const back = document.getElementById('under-top');
-function ff(){
-  back.style.backgroundColor='red';
-  back.style.backgroundImage='url("../image/editorialDesign.png")';
-}
-ff();
+// const back = document.getElementById('under-top');
+// function ff(){
+//   back.style.backgroundColor='red';
+//   back.style.backgroundImage='url("../image/editorialDesign.png")';
+// }
+// ff();
 
