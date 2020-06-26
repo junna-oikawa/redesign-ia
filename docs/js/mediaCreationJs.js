@@ -16,7 +16,6 @@ switch (getPageTitle) {
   case "映像デザインスタジオ":
     pageNumber = 6;
     break;
-
   case "ネットワークデザインスタジオ":
     pageNumber = 7;
     break;
@@ -103,43 +102,59 @@ const renderJson = (json) => {
   setInterval(countUp,1000); //1秒毎にcountup()を呼び出し
 
   function changeImage() {
-    count = 0;
-
-    if (image.style.opacity == '') {
-      image.style.opacity = 1;
-    }
-
-    let opacityInt = image.style.opacity * 100;
-    //フェードアウトの処理（opacityを100ミリ秒ごとに0.1づつ減らす）
-    let intervalId = setInterval(() => {
-      opacityInt = opacityInt - 10;
-      image.style.opacity = opacityInt / 100;
-
-      if (image.style.opacity <= 0) {
-        clearInterval(intervalId);
-        counter++;
-        if (counter < 0) {
-          counter = photoNumber;
-        }
-        if(counter > photoNumber)
-        {
-          counter = 0;
-        }
-        image = studioPhotos[counter];
-
-        opacityInt = image.style.opacity * 100;
-        //フェードインの処理（opacityを100ミリ秒ごとに0.1づつ増やす）
-        intervalId = setInterval(() => {
-          opacityInt = opacityInt + 10;
-          image.style.opacity = opacityInt / 100;
-          if (image.style.opacity >= 1) {
-            clearInterval(intervalId);
-          }
-        }, 50);
+    count = 0; //カウントの初期値
+    function countUp(){
+      count++;
+      if(count >= 6)
+      {
+        changeImage();
       }
-    }, 50);
-
-  }
+    }
+    setInterval(countUp,1000); //1秒毎にcountup()を呼び出し
+  
+    function changeImage() {
+      count = 0;
+  
+      if (image.style.opacity == '') {
+        image.style.opacity = 1;
+      }
+  
+      let opacityInt = image.style.opacity * 100;
+      //フェードアウトの処理（opacityを100ミリ秒ごとに0.1づつ減らす）
+      let intervalId = setInterval(() => {
+        opacityInt = opacityInt - 10;
+        image.style.opacity = opacityInt / 100;
+  
+        if (image.style.opacity <= 0) {
+          clearInterval(intervalId);
+          counter--;
+          if (counter < 0) {
+            counter = photoNumber;
+          }
+          if(counter > photoNumber)
+          {
+            counter = 0;
+          }
+          image = studioPhotos[counter];
+  
+          opacityInt = image.style.opacity * 100;
+          //フェードインの処理（opacityを100ミリ秒ごとに0.1づつ増やす）
+          intervalId = setInterval(() => {
+            opacityInt = opacityInt + 10;
+            image.style.opacity = opacityInt / 100;
+            if (image.style.opacity >= 1) {
+              clearInterval(intervalId);
+            }
+          }, 50);
+        }
+      }, 50);
+  
+    }
+    // setTimer();
+    // function setTimer() {
+    //   setTimeout(setTimer, 8000);
+    //   setTimeout(changeImage, 8000);
+    // }
 
   //サムネイルに対する処理
   let imageThum = [];
@@ -157,27 +172,29 @@ const renderJson = (json) => {
   function clickThumbnail0() {
     counter = 1;
     changeImage();
-    count = 0;
+    // count = 0;
   }
   function clickThumbnail1() {
     counter = 2;
     changeImage();
-    count = 0;
+    // count = 0;
+    console.log('111');
   }
   function clickThumbnail2() {
     counter = 3;
     changeImage();
-    count = 0;
+    // count = 0;]
+    console.log('222');
   }
   function clickThumbnail3() {
     counter = 4;
     changeImage();
-    count = 0;
+    // count = 0;
   }
   function clickThumbnail4() {
     counter = 0;
     changeImage();
-    count = 0;
+    // count = 0;
   }
 
   document.getElementById('result').textContent = JSON.stringify(json, null, 2);
