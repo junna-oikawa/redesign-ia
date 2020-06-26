@@ -1,0 +1,262 @@
+body {
+  margin:0;
+  width:100vw;
+  height:auto;
+  font-family: sans-serif;
+  /* background-image: url('../image/editorialDesign.png'); */
+  background-repeat:no-repeat;
+  background-size:cover;
+  position: relative;
+  padding: 0;
+  overflow-x: hidden;
+  
+}
+
+
+#university-name{
+  position: absolute;
+  margin-top:-4vw;
+  width: 100vw;
+  text-align: center;
+  font-size: 1vw;
+  color: rgb(60, 60, 60);
+}
+
+#hako{
+  position: absolute;
+  margin-top:-2.5vw;
+  right:2vw;
+}
+
+.switch{
+  font-weight: bold;
+  font-size: 1.4vw;
+  color: rgb(60, 60, 60);
+  text-align: right;
+  margin-right: 2vw;
+  margin-top:-2.0vw;
+  width: 5vw;
+  float: right;
+  clear: both;
+}
+.switch:hover{
+  opacity:0.5;
+}
+
+#showloading{
+  text-align: center;
+  margin: -2vw;
+  padding: 0;
+  width: 100vw;
+  height:100vw;
+  position:fixed;
+  background-color: white;
+  transition: 1.0s;
+  z-index: 10;
+}
+
+
+#loading-image{
+  width: 10vw;
+  position: fixed;
+  z-index: 5;
+  left: 45vw;
+  top: 45vh;
+  transition: 1.0s;
+}
+
+.hidden {
+  display: none;
+}
+
+h1 {
+  font-size: 3vw;
+  color: white;
+  /* background-color: rgb(0, 0, 0, 0.1); */
+}
+
+
+#contents{
+  position: relative;
+}
+#studioTopDiv {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  /* filter: brightness(80%); */
+  filter: saturate(70%);
+  /* background-image:url("../image/sample.png"); */
+  margin:0;
+  padding:0;
+  margin-top: 5vw;
+  height: 40vw;
+  position: relative;
+  overflow: hidden;
+}
+
+#under-top{
+  width:100vw;
+  height:auto;
+  padding:0;
+  margin-top:-2vw;
+  background-repeat:no-repeat;
+  background-size: 100vw auto;
+  color:rgb(99, 99, 99);
+  /* background: size 50%; */
+  /* opacity: 0.5; */
+  /* background-image: url('../image/editorialDesign.png'); */
+}
+
+
+.studio-title{
+
+  font-size:4vw;
+  top:15vw;
+  width:100vw;
+  text-align: center;
+  position: absolute;
+  z-index: 2;
+}
+
+
+#studioGalleryDiv{
+  margin-top:10vw;
+  width:50vw;
+  height:35vw;
+  text-align: left;
+  padding-left:10vw;
+  /* transform: translateX(-50%); */
+  overflow:hidden;
+  background-color:rgb(255, 255, 255, 0.5);
+}
+
+.studio-photo{
+  /* right:10vw; */
+  width:50vw;
+  height:35vw;
+	object-fit:cover;
+  position: absolute;
+  overflow: hidden;
+}
+
+#studioPhotoThumbnails{
+  width:50vw;
+  margin-left:9vw;
+  
+  text-align: left;
+  /* margin-left: 9vw; */
+  height: 9vw;
+  margin-top:1vw;
+  /* position: relative; */
+  /* margin-right: 50vw; */
+  /* text-align: right; */
+  right:18vw;
+  /* background-color:rgb(255, 255, 255, 0.5); */
+  /* background-color: rgb(0, 0, 0, 0.1); */
+}
+
+.studio-photo-thumbnail{
+  /* padding-top:1.5vw; */
+  z-index: 3;
+  height: 14vw;
+  overflow: hidden;
+  vertical-align:top;
+  padding:0;
+  margin:1vw;
+  transition:0.5s;
+  height:7vw;
+	object-fit:cover;
+}
+
+.studio-photo-thumbnail:hover{
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+#studio-about{
+  margin:0;
+  padding-top:10vw;
+  margin-left:10vw;
+  padding-bottom:3vw;
+}
+
+#studio-description{
+  width:50vw;
+  font-size: 1.2vw;
+  line-height: 2.5vw;
+}
+
+.paragraph-name{
+  padding-top:3vw;
+}
+#studio-faculty{
+  font-size: 1.5vw;
+}
+
+.CP{
+  margin-top:10vw;
+  font-weight: 200;
+  text-align: center;
+  font-size: 10px;
+  color: rgb(70, 70, 70);
+}
+
+/* h1, h2 {
+  font-weight: 400;
+  color: steelblue;
+}
+#studios > div {
+  margin: 1em 0;
+  padding: 0.5em;
+  background: #f8f8f8;
+  min-height: 3em;
+}
+.studio-title {
+  font-weight: bold;
+}
+.studio-title-en {
+  margin-left: 1em;
+  font-weight: 100;
+  opacity: 0.75;
+}
+
+#studio {
+    margin: 1em 0;
+    padding: 0.5em;
+    background: #f8f8f8;
+    min-height: 3em;
+  } */
+
+  /* 以下追加 */
+
+   /* #studioTopDiv{
+    position: absolute;
+    width: 100%;
+  }  */
+
+  /* #studioPhotoDiv {
+    height: 500px;
+    position: absolute;
+    width: 100%;
+  } */
+  
+  /* #studioPhotosDiv img {
+    
+    position: absolute;
+    border: 1px solid white;
+    box-shadow: 5px 5px 10px gray;
+    width: 1px;
+    z-index:5;
+  } */
+
+  /* #studioPhotoThumbnails{
+    position: relative;
+    top: 500px;
+    background-color: aquamarine;
+  } */
+
+  /* .studio-photo{
+    width: 500px;
+  } */
