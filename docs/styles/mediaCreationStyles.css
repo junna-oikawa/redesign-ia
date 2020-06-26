@@ -1,35 +1,51 @@
 body {
+  margin:0;
+  width:100vw;
+  height:auto;
   font-family: sans-serif;
   background-image: url('../image/editorialDesign.png');
   background-repeat:no-repeat;
   background-size:cover;
   position: relative;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 .switch{
   font-weight: bold;
-  font-size: 20px;
+  font-size: 2vw;
   color: rgb(20, 20, 20);
   text-align: right;
-  margin:0px 20px 0px 20px;
+  margin:0px 2vw 0px 2vw;
   width: 100px;
   float: right;
   clear: both;
 }
 
-/*画面全体にローディング画面を表示*/
-#loading {
-  width: 100%;
-  height: 100vh;
-  background-color: #fff;
-  position: relative;
-  }
-  #loading img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  }
+#showloading{
+  text-align: center;
+  margin: -2vw;
+  padding: 0;
+  width: 100vw;
+  height:100vw;
+  position:fixed;
+  background-color: white;
+  transition: 1.0s;
+  z-index: 10;
+}
+
+
+#loading-image{
+  width: 10vw;
+  position: fixed;
+  z-index: 5;
+  left: 45vw;
+  top: 45vh;
+  transition: 1.0s;
+}
+
+
+
   .hidden {
   display: none;
   }
@@ -40,9 +56,6 @@ h1 {
   background-color: rgb(0, 0, 0, 0.1);
 }
 
-/* p{
-  font-size: 1.5vw;
-} */
 #university-name{
   width: 100vw;
   text-align: center;

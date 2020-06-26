@@ -76,38 +76,10 @@ const renderJson = (json) => {
   const studioDescription = document.createElement("p");
   studioDescription.textContent = studio['description-en'];
   document.getElementById('studio-description').appendChild(studioDescription);
-
   
-
-
   const studioFaculty = document.createElement("p");
   studioFaculty.textContent = studio['faculty-en'];
   document.getElementById('studio-faculty').appendChild(studioFaculty);
-
-  
-//   // ローディング画面のdivを取得
-// var showloading = document.getElementById('showloading');
-// // 画面本体のdivを取得
-// var contents = document.getElementById('contents');
-// // // 読み込みが完了したら発動
-// window.addEventListener('load', function () {
-// // loadingのdivを非表示に
-// showloading.style.display = 'none';
-// // contentsのdivを表示
-// contents.classList.remove('hidden');
-// });
-
-
-
-// var log = function(){
-//   console.log("test");
-//   showloading.style.display = 'none';
-// // contentsのdivを表示
-//   contents.classList.remove('hidden');
-// };
-
-// setTimeout(log, 3000);
-
 
   //写真の表示位置
   let windowWidth = window.innerWidth;
@@ -208,12 +180,6 @@ const renderJson = (json) => {
     console.log('all ');
   });
 
-  // window.addEventListener('load', (event) => {
-  //   console.log('ページが完全に読み込まれました');
-  // });
-
-  
-  
 
   // studioDiv.appendChild(studioTitle);
   // studioDiv.appendChild(studioDescription);
@@ -241,22 +207,3 @@ const getData = async () => {
 }
 
 getData();
-
-// window.onload = function() {
-//   console.log('ok');
-// }
-
-
-// function Con(){
-//   console.log('どこまで');
-  
-// Con();
-
-// document.addEventListener('load', function() {
-
-// });
-// }
-
-window.onload = function() {
-  cconsole.log('finish');
-}

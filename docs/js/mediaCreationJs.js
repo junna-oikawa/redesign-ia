@@ -1,21 +1,9 @@
-
-
-
 const uri = 'https://script.google.com/macros/s/AKfycbxyacpN8y4nxSAnU0Eji6E_rBRDFTY7YoWWFa0clY5ELRhskgpt/exec';
 const id = '1BpGnuwC4lZf9G2yFyiSrxbJuGO8gviV8mr-I2D3x4vA';
 const sheet = 'studio';
 const endpoint = `${uri}?id=${id}&sheet=${sheet}`;
 let getPageTitle = document.title;
 let pageNumber = -1;
-
-
-
-
-
-// window.addEventListener('load', (event) => {
-//   console.log('ページが完全に読み込まれました');
-// });
-
 
 //取り込む内容の識別
 switch (getPageTitle) {
@@ -87,36 +75,9 @@ const renderJson = (json) => {
   studioDescription.textContent = studio['description-ja'];
   document.getElementById('studio-description').appendChild(studioDescription);
 
-  
-
-
   const studioFaculty = document.createElement("p");
   studioFaculty.textContent = studio['faculty-ja'];
   document.getElementById('studio-faculty').appendChild(studioFaculty);
-
-  
-//   // ローディング画面のdivを取得
-// var showloading = document.getElementById('showloading');
-// // 画面本体のdivを取得
-// var contents = document.getElementById('contents');
-// // // 読み込みが完了したら発動
-// window.addEventListener('load', function () {
-// // loadingのdivを非表示に
-// showloading.style.display = 'none';
-// // contentsのdivを表示
-// contents.classList.remove('hidden');
-// });
-
-
-
-// var log = function(){
-//   console.log("test");
-//   showloading.style.display = 'none';
-// // contentsのdivを表示
-//   contents.classList.remove('hidden');
-// };
-
-// setTimeout(log, 3000);
 
 
   //写真の表示位置
@@ -251,22 +212,3 @@ const getData = async () => {
 }
 
 getData();
-
-// window.onload = function() {
-//   console.log('ok');
-// }
-
-
-// function Con(){
-//   console.log('どこまで');
-  
-// Con();
-
-// document.addEventListener('load', function() {
-
-// });
-// }
-
-window.onload = function() {
-  cconsole.log('finish');
-}
