@@ -31,8 +31,11 @@ switch (getPageTitle) {
 const renderJson = (json) => {
   const studios = json.records;
   studios.pop();
+
   const studio = studios[pageNumber];
 
+  // const studioNameDiv = document.createElement('div');
+  // const studioNameDivEn = document.createElement('div');
   const studioPhotoDiv = document.createElement('div');
   const studioPhotosDiv = document.createElement('div');
   const studioPhotoThumbnail = document.createElement('div');
@@ -89,72 +92,52 @@ const renderJson = (json) => {
   studioPhotos[photoNumber].style.opacity = 1;
 
   let image = studioPhotos[photoNumber];
+  image.onclick = changeImage;
   let counter = photoNumber;
 
-  count = 0; //カウントの初期値
-  function countUp(){
-	  count++;
-    if(count >= 6)
-    {
-      changeImage();
-    }
-  }
-  setInterval(countUp,1000); //1秒毎にcountup()を呼び出し
-
   function changeImage() {
-    count = 0; //カウントの初期値
-    function countUp(){
-      count++;
-      if(count >= 6)
-      {
-        changeImage();
-      }
+
+    if (image.style.opacity == '') {
+      image.style.opacity = 1;
     }
-    setInterval(countUp,1000); //1秒毎にcountup()を呼び出し
-  
-    function changeImage() {
-      count = 0;
-  
-      if (image.style.opacity == '') {
-        image.style.opacity = 1;
-      }
-  
-      let opacityInt = image.style.opacity * 100;
-      //フェードアウトの処理（opacityを100ミリ秒ごとに0.1づつ減らす）
-      let intervalId = setInterval(() => {
-        opacityInt = opacityInt - 10;
-        image.style.opacity = opacityInt / 100;
-  
-        if (image.style.opacity <= 0) {
-          clearInterval(intervalId);
-          counter--;
-          if (counter < 0) {
-            counter = photoNumber;
-          }
-          if(counter > photoNumber)
-          {
-            counter = 0;
-          }
-          image = studioPhotos[counter];
-  
-          opacityInt = image.style.opacity * 100;
-          //フェードインの処理（opacityを100ミリ秒ごとに0.1づつ増やす）
-          intervalId = setInterval(() => {
-            opacityInt = opacityInt + 10;
-            image.style.opacity = opacityInt / 100;
-            if (image.style.opacity >= 1) {
-              clearInterval(intervalId);
-            }
-          }, 50);
+
+    let opacityInt = image.style.opacity * 100;
+    //フェードアウトの処理（opacityを100ミリ秒ごとに0.1づつ減らす）
+    let intervalId = setInterval(() => {
+      opacityInt = opacityInt - 10;
+      image.style.opacity = opacityInt / 100;
+
+      if (image.style.opacity <= 0) {
+        clearInterval(intervalId);
+        counter--;
+        if (counter < 0) {
+          counter = photoNumber;
         }
-      }, 50);
-  
-    }
-    // setTimer();
-    // function setTimer() {
-    //   setTimeout(setTimer, 8000);
-    //   setTimeout(changeImage, 8000);
-    // }
+        if(counter > photoNumber)
+        {
+          counter = 0;
+        }
+        image = studioPhotos[counter];
+
+        opacityInt = image.style.opacity * 100;
+        //フェードインの処理（opacityを100ミリ秒ごとに0.1づつ増やす）
+        intervalId = setInterval(() => {
+          opacityInt = opacityInt + 10;
+          image.style.opacity = opacityInt / 100;
+          if (image.style.opacity >= 1) {
+            clearInterval(intervalId);
+          }
+        }, 50);
+      }
+    }, 50);
+
+  }
+  setTimer();
+  function setTimer() {
+    setTimeout(setTimer, 8000);
+    setTimeout(changeImage, 8000);
+  }
+
 
   //サムネイルに対する処理
   let imageThum = [];
@@ -168,36 +151,48 @@ const renderJson = (json) => {
   imageThum[3].onclick = clickThumbnail3;
   imageThum[4].onclick = clickThumbnail4;
 
-  //サムネイルをクリックした時の処理
+  //サムネイルをクリックした時の処理 ----------------
   function clickThumbnail0() {
     counter = 1;
     changeImage();
-    // count = 0;
   }
   function clickThumbnail1() {
     counter = 2;
     changeImage();
-    // count = 0;
-    console.log('111');
   }
   function clickThumbnail2() {
     counter = 3;
     changeImage();
-    // count = 0;]
-    console.log('222');
   }
   function clickThumbnail3() {
     counter = 4;
     changeImage();
-    // count = 0;
   }
   function clickThumbnail4() {
     counter = 0;
     changeImage();
-    // count = 0;
   }
 
+  
+  document.addEventListener('load', function() {
+    console.log('all ');
+  });
+
+  // window.addEventListener('load', (event) => {
+  //   console.log('ページが完全に読み込まれました');
+  // });
+
+  
+  
+
+  // studioDiv.appendChild(studioTitle);
+  // studioDiv.appendChild(studioDescription);
+  // studioDiv.appendChild(studioFaculty);
+  // document.getElementById('studios').appendChild(studioDiv);
+
   document.getElementById('result').textContent = JSON.stringify(json, null, 2);
+
+  
 }
 
 
