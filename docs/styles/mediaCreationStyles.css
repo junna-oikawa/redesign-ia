@@ -44,11 +44,9 @@ body {
   transition: 1.0s;
 }
 
-
-
-  .hidden {
+.hidden {
   display: none;
-  }
+}
 
 h1 {
   font-size: 3vw;
@@ -64,7 +62,7 @@ h1 {
 }
 
 #studioTopDiv {
-  margin-top: 10vw;
+  margin-top: 5vw;
   height: 50vw;
   position: relative;
   overflow: hidden;
@@ -97,6 +95,12 @@ h1 {
   padding-right: 1vw;
   padding-left: 1vw;
   margin:0;
+  transition:0.5s;
+}
+
+.studio-photo-thumbnail:hover{
+  opacity: 0.5;
+  cursor: pointer;
 }
 
 #studio-about{
