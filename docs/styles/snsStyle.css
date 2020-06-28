@@ -1,0 +1,87 @@
+body {
+  background-repeat:no-repeat;
+  background-size:100vw 300vw;
+  background-image: url("../image/all.png");
+  width:100vw;
+  overflow-x: hidden;
+  height:auto;
+  font-family: sans-serif;
+  position: relative;
+  padding: 0;
+  margin-top:-19vw;
+}
+#contents{
+  position: relative;
+}
+
+#university-name{
+  position: absolute;
+  margin-top:0;
+  padding-top:0;
+  width: 100vw;
+  text-align: center;
+  font-size: 1vw;
+  color: rgb(60, 60, 60);
+}
+
+#en-jp{
+  position: absolute;
+  margin-top:-2.5vw;
+  right:2vw;
+}
+.switch{
+  font-weight: bold;
+  font-size: 1.4vw;
+  color: rgb(60, 60, 60);
+  text-align: right;
+  margin-right: 2vw;
+  margin-top:-2.0vw;
+  width: 5vw;
+  float: right;
+  clear: both;
+  cursor: pointer;
+}
+.switch:hover{
+  opacity:0.5;
+}
+
+
+#twitter{
+  padding-top:9vw;
+  color:rgb(60, 60, 60);
+  font-size:3vw;
+  position: relative;
+  width:100vw;
+  text-align: center;
+  margin-top:20vw;
+}
+
+#instagram{
+  width:90vw;
+  text-align: center;
+  padding-left: 10vw;
+  margin-top:8vw;
+  height:200vw;
+  /* transform: scale(2.0); */
+}
+
+.instagram-media{
+  /* transform: scale(0.5); */
+  float: left;
+}
+
+.pd{
+  float: left;
+  margin-right:2vw;
+  margin-bottom: 3vw;
+}
+
+#CP{
+  width: 100vw;
+  float:none;
+  margin-top:10vw;
+  font-weight: 200;
+  text-align: center;
+  font-size: 10px;
+  color: rgb(70, 70, 70);
+}

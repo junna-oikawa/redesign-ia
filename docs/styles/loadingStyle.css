@@ -1,0 +1,24 @@
+#showloading{
+  text-align: center;
+  /* margin: -2vw; */
+  padding: 0;
+  margin:0;
+  width: 100vw;
+  height:100vw;
+  position:fixed;
+  background-color: white;
+  transition: 1.0s;
+  z-index: 10;
+  text-align: center;
+}
+#loading-image{
+  width: 10vw;
+  position: fixed;
+  z-index: 2;
+  left: 45vw;
+  top: 45vh;
+  transition: 1.0s;
+}
+.hidden {
+  display: none;
+}
