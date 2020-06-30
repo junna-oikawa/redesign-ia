@@ -13,6 +13,9 @@ body {
 #contents{
   position: relative;
 }
+h1{
+  color:black;
+}
 
 #university-name{
   position: absolute;
